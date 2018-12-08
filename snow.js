@@ -27,7 +27,7 @@ class Snowflake {
     this.x += this.vx;
     this.y += this.vy;
 
-    if (this.y + this.radius > window.innerWidth) {
+    if (this.y + this.radius > window.innerHeight) {
       this.reset();
     }
   }
@@ -56,8 +56,7 @@ class Snow {
   }
 
   createSnowflakes() {
-    const flakes = window.innerWidth / 5;
-    console.log(flakes);
+    const flakes = window.innerWidth / 4;
 
     this.snowflakes = [];
 
@@ -69,7 +68,7 @@ class Snow {
   update() {
     this.ctx.clearRect(0, 0, this.width, this.height);
 
-    for (const flake in this.snowflakes) {
+    for (let flake of this.snowflakes) {
       flake.update();
 
       this.ctx.save();
